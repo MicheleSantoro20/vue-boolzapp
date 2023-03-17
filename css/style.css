@@ -168,7 +168,7 @@ main {
     background-color: rgb(213, 249, 186);
     padding: 15px;
     border-radius: 10px;
-    max-width: 400px;
+    max-width: 600px;
     word-wrap: break-word;
 
 }
@@ -178,6 +178,7 @@ main {
     padding: 15px;
     border-radius: 10px;
     word-wrap: break-word;
+    max-width: 600px;
 
 }
 
