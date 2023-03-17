@@ -11,68 +11,83 @@
 
 </head>
 <body>
+    <div id="app">
 
-    <header>
+        <header>
 
-    </header>
-    <main>
-        <div class="container d-flex">
-            <div class="aside">
-
-                <!--Inizio Header dell'aside-->
-                <div class="head d-flex">
-                    <div class="d-flex">
-                        <img class="img-io" src="img/avatar_io.jpg" alt="">
-                        <div class="headTXT">Sofia</div>
-                    </div>
-                    <div class="d-flex icons">
-                        <i class="fa-solid fa-circle-notch buttons"></i>
-                        <i class="fa-solid fa-message buttons"></i>
-                        <i class="fa-solid fa-ellipsis-vertical buttons"></i>
-                    </div>
-                </div>
-                <!--Fine Header dell'aside-->
-
-
-                <!--Inizio Alerts-->
-                <div class="alerts d-flex">
-                    <div class="d-flex ">
-                        <div class="ring-container">
-                            <i class="fa-solid fa-bell-slash buttons"></i>
+        </header>
+        <main>
+            <div class="container d-flex">
+                <div class="aside">
+    
+                    <!--Inizio Header dell'aside-->
+                    <div class="head d-flex">
+                        <div class="d-flex">
+                            <img class="img-avatars" src="img/avatar_io.jpg" alt="">
+                            <div class="headTXT">Sofia</div>
+                        </div>
+                        <div class="d-flex icons">
+                            <i class="fa-solid fa-circle-notch buttons"></i>
+                            <i class="fa-solid fa-message buttons"></i>
+                            <i class="fa-solid fa-ellipsis-vertical buttons"></i>
                         </div>
                     </div>
-
-                    <div class="">
-                        <div>Ricevi notifiche di nuovi messaggi</div>
-                        <a class="active-alerts" href="">Attiva notifiche desktop</a>
-                    </div>
-
-                </div>
-                <!--Fine Alerts-->   
-
-
-                <!--Inizio Filter zone-->
-                <div class="container-filter">
-                    <div class=" filter-wrapper d-flex">
-
-                        <div class="filtering">
-                            <i class="fa-solid fa-magnifying-glass lens"></i>
-                            <input  class="chatFilter" type="text" placeholder="Cerca o inizia una nuova chat" name="" id="">
+                    <!--Fine Header dell'aside-->
+    
+    
+                    <!--Inizio Alerts-->
+                    <div class="alerts d-flex">
+                        <div class="d-flex ">
+                            <div class="ring-container">
+                                <i class="fa-solid fa-bell-slash alert-button"></i>
+                            </div>
                         </div>
-
+    
+                        <div class="">
+                            <div>Ricevi notifiche di nuovi messaggi</div>
+                            <a class="active-alerts" href="">Attiva notifiche desktop</a>
+                        </div>
+    
                     </div>
+                    <!--Fine Alerts-->   
+    
+    
+                    <!--Inizio Filter zone-->
+                    <div class="container-filter">
+                        <div class=" filter-wrapper d-flex">
+    
+                            <div class="filtering">
+                                <i class="fa-solid fa-magnifying-glass lens"></i>
+                                <input  class="chatFilter" type="text" placeholder="Cerca o inizia una nuova chat" name="" id="">
+                            </div>
+    
+                        </div>
+                    </div>
+                    <!--Fine Filter Zone-->
+    
+    
+                    <!--Inizio Rubrica-->
+                    <div class="rubrica">
+                        <ul>
+                            <li v-for="(element, index) in contacts" class="container-contact d-flex">
+                                <img :src="element.avatar"  class="img-avatars avatar-rubrica" alt="">
+                                <div class="nomi-rubrica">
+                                    <div >{{element.name}}</div>
+                                    <div class="gray">Ultimo Messaggio Inviato</div>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+    
                 </div>
-                <!--Fine Filter Zone-->
-
-
-                <!--Inizio Rubrica-->
-                <ul></ul>
-
+                <div class="right-side">
+                </div>
             </div>
-            <div class="right-side">
-            </div>
-        </div>
-    </main>
+        </main>
+
+    </div>
+    
 
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

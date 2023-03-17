@@ -35,7 +35,7 @@ main {
 }
 
 .aside {
-    background-color: aquamarine;
+    background-color: rgb(200, 200, 200);
     width: 35%;
 }
 
@@ -51,7 +51,7 @@ main {
     justify-content: space-between;
     padding: 15px 10px;
 }
-.img-io {
+.img-avatars {
     height: 50px;
     border-radius: 50%;
 }
@@ -87,9 +87,11 @@ main {
     margin:0px 10px 0px 20px;
 }
 
+
+
 .alert-button {
     color: rgb(134, 167, 228);
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .active-alerts {
@@ -120,4 +122,32 @@ main {
 
 .lens {
     color: gray;
+}
+
+.container-contact {
+    height: 70px;
+    background-color: rgb(200, 200, 200);
+    border-top: 1px solid rgb(139, 139, 139);
+}
+
+.gray {
+    color: rgb(76, 76, 76);
+}
+
+.avatar-rubrica {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.nomi-rubrica  {
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.container-contact:hover {
+    background-color: gray;
+}
+
+.buttons:hover {
+    color: white;
 }
