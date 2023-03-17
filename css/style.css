@@ -41,7 +41,6 @@ main {
 
 .right-side {
     width: 65%;
-    background-color: yellow;
 }
 
 
@@ -150,4 +149,37 @@ main {
 
 .buttons:hover {
     color: white;
+}
+
+.msg-body {
+    height: 650px;
+    width: 100%;
+    background-image: url("../img/mine.jpg");
+    padding-top: 20px;
+}
+
+.msg-user-wrapper  {
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.user-msg {
+    background-color: rgb(213, 249, 186);
+    padding: 15px;
+    border-radius: 10px;
+
+}
+
+.bot-msg {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+
+}
+
+.msg-wrapper  {
+    padding: 15px;
+    display: flex;
+    justify-content: flex-start;
 }
