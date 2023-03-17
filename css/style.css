@@ -159,7 +159,7 @@ main {
 }
 
 .msg-user-wrapper  {
-    padding: 15px;
+    padding: 5px;
     display: flex;
     justify-content: flex-end;
 }
@@ -168,6 +168,8 @@ main {
     background-color: rgb(213, 249, 186);
     padding: 15px;
     border-radius: 10px;
+    max-width: 400px;
+    word-wrap: break-word;
 
 }
 
@@ -175,11 +177,12 @@ main {
     background-color: white;
     padding: 15px;
     border-radius: 10px;
+    word-wrap: break-word;
 
 }
 
 .msg-wrapper  {
-    padding: 15px;
+    padding: 5px;
     display: flex;
     justify-content: flex-start;
 }
