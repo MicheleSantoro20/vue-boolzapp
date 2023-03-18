@@ -103,15 +103,20 @@
                         </div>
                     </div>
                     <div class="msg-body">
-                        <div class="msg-user-wrapper">
-                            <div class="user-msg">Ciao sono Andonio, come stai?</div>
+                        <div :class="(element.status == 'sent'?'msg-user-wrapper':'msg-wrapper')"  v-for="(element) in contacts[1].messages">
+                            <div :class="(element.status == 'sent'?'user-msg':'bot-msg')">{{element.message}}</div>
                         </div>
-                        <div class="msg-user-wrapper">
-                            <div class="user-msg">Io me stooo divertendo a meeelano, con i  fratm dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</div>
+
+
+<!--                         <div class="msg-user-wrapper">
+                            <div class="user-msg">Io me stooo divertendo a meeelano, con i  fratm </div>
                         </div>
                         <div class="msg-wrapper">
                             <div class="bot-msg">Uaa che bellezza, vorrei esserci anche io</div>
-                        </div>
+                        </div> -->
+
+
+
                     </div>
                     <div class="msg-input">
 
