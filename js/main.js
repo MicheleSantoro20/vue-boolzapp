@@ -3,6 +3,9 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
+        elementoSelezionato : 0,
+        newMessage: "",
+        arrayFilter: [],
         contacts: [
             {
             name: 'Michele',
@@ -166,6 +169,28 @@ createApp({
             ],
             }
             ]  
+    }
+  },
+  methods : {
+    chat(index) {
+      this.elementoSelezionato = index;
+      console.log (this.elementoSelezionato)
+    },
+    addMessage() {
+      if (this.elementoSelezionato >= 0) {
+        this.contacts[this.elementoSelezionato].messages.push({message:this.newMessage, status:'sent'});
+        this.receivedMessage()
+      }
+    },
+    receivedMessage() {
+      setTimeout(()=>{
+        this.contacts[this.elementoSelezionato].messages.push({message:'ok!', status:'received'});
+      }, 1000);
+
+    },
+    filter(index) {
+      contacts.forEach(element => arrayFilter.push(this.element.name));
+      
     }
   }
 }).mount('#app')

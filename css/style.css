@@ -43,6 +43,9 @@ main {
     width: 65%;
 }
 
+#sofia {
+    line-height: 50px;
+}
 
 .head {
     height: 80px;
@@ -55,8 +58,6 @@ main {
     border-radius: 50%;
 }
 .headTXT {
-    line-height: 50px;
-    vertical-align: middle;
     padding-left: 5px;
     font-size: 18px;
 }
@@ -125,7 +126,7 @@ main {
 
 .container-contact {
     height: 70px;
-    background-color: rgb(200, 200, 200);
+    background-color: WHITE;
     border-top: 1px solid rgb(139, 139, 139);
 }
 
@@ -186,4 +187,10 @@ main {
     padding: 5px;
     display: flex;
     justify-content: flex-start;
+}
+
+.msg-input {
+    height: 70px;
+    background-color: beige;
+    padding: 10px 20px;
 }

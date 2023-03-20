@@ -27,7 +27,7 @@
                     <div class="head d-flex">
                         <div class="d-flex">
                             <img class="img-avatars" src="img/avatar_io.jpg" alt="">
-                            <div class="headTXT">Sofia</div>
+                            <div class="headTXT" id="sofia">Sofia</div>
                         </div>
                         <div class="d-flex icons">
                             <i class="fa-solid fa-circle-notch buttons"></i>
@@ -72,7 +72,7 @@
                     <!--Inizio Rubrica-->
                     <div class="rubrica">
                         <ul>
-                            <li v-for="(element, index) in contacts" class="container-contact d-flex">
+                            <li v-for="(element, index) in contacts" class="container-contact d-flex" @click="chat(index)">
                                 <img :src="element.avatar"  class="img-avatars avatar-rubrica" alt="">
                                 <div class="nomi-rubrica">
                                     <div >{{element.name}}</div>
@@ -92,7 +92,7 @@
                         <div class="d-flex">
                             <img class="img-avatars" src="img/avatar_io.jpg" alt="">
                             <div class="headTXT">
-                                <div>{{contacts.name}}</div>
+                                <div>{{contacts[elementoSelezionato].name}}</div>
                                 <div>Ultimo accesso alle ore 12:00</div>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                         </div>
                     </div>
                     <div class="msg-body">
-                        <div :class="(element.status == 'sent'?'msg-user-wrapper':'msg-wrapper')"  v-for="(element) in contacts[1].messages">
+                        <div :class="(element.status == 'sent'?'msg-user-wrapper':'msg-wrapper')"  v-for="(element) in contacts[elementoSelezionato].messages">
                             <div :class="(element.status == 'sent'?'user-msg':'bot-msg')">{{element.message}}</div>
                         </div>
 
@@ -118,8 +118,10 @@
 
 
                     </div>
-                    <div class="msg-input">
-
+                    <div class="msg-input d-flex">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage">
+                        <i class="fa-solid fa-microphone"></i>
                     </div>
                 </div>
             </div>
