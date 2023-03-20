@@ -190,8 +190,13 @@ createApp({
 
     },
     filter() {
-      contacts.filter(search => search.name == filtro);
-      console.log()
-    }
-  }
+      this.contacts.forEach(element =>{
+       if (element.name.toLowerCase().includes(this.filtro.toLowerCase())) {
+        element.visible = true;
+       } else {
+        element.visible = false;
+       }
+      } )
+  },
+}
 }).mount('#app')
