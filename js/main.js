@@ -5,6 +5,7 @@ createApp({
     return {
         elementoSelezionato : 0,
         newMessage: "",
+        filtro: "",
         arrayFilter: [],
         contacts: [
             {
@@ -188,9 +189,9 @@ createApp({
       }, 1000);
 
     },
-    filter(index) {
-      contacts.forEach(element => arrayFilter.push(this.element.name));
-      
+    filter() {
+      contacts.filter(search => search.name == filtro);
+      console.log()
     }
   }
 }).mount('#app')

@@ -61,7 +61,7 @@
     
                             <div class="filtering">
                                 <i class="fa-solid fa-magnifying-glass lens"></i>
-                                <input  class="chatFilter" type="text" placeholder="Cerca o inizia una nuova chat" name="" id="">
+                                <input  class="chatFilter" type="text" placeholder="Cerca o inizia una nuova chat" name="" v-model="filtro" id="" @keyup="filter()">
                             </div>
     
                         </div>
@@ -72,7 +72,7 @@
                     <!--Inizio Rubrica-->
                     <div class="rubrica">
                         <ul>
-                            <li v-for="(element, index) in contacts" class="container-contact d-flex" @click="chat(index)">
+                            <li v-for="(element, index) in contacts" class="container-contact d-flex" @click="chat(index)" >
                                 <img :src="element.avatar"  class="img-avatars avatar-rubrica" alt="">
                                 <div class="nomi-rubrica">
                                     <div >{{element.name}}</div>
