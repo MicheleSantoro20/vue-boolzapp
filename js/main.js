@@ -8,7 +8,7 @@ createApp({
 
       dropContent: document.getElementById('dropdown-content'),
       elementoSelezionato : 0,
-      rispostePc : ['ok!', 'ben fatto!', 'ottimo lavoro!', 'come stai?', 'vado via, ciaooo!'],
+      rispostePc : ['ok!', 'ben fatto!', 'ottimo lavoro!', 'come stai?', 'vado via, ciaooo!', 'Gravi tumulti hanno travolto la galassia a causa della tassazione sulle rotte mercantili verso i sistemi stellari periferici. Lingorda federazione dei mercanti, sperando di risolvere la questione, ha schierato micidiali astronavi da guerra per impedire tutte le spedizioni nel piccolo pianeta di Naboo. Mentre il congresso della Repubblica discute senza sosta l allarmante succedersi degli eventi, il cancelliere supremo ha inviato segretamente nella Galassia due Cavalieri Jedi, i guardiani della pace e della giustizia, per risolvere il conflitto.' ],
       isActive: false,
       indexMsg: "",
       newMessage: "",
@@ -226,7 +226,7 @@ createApp({
     },
 
     randomNumber() {
-      let numero = Math.floor( Math.random()* 5) + 0;
+      let numero = Math.floor( Math.random()* 6) + 0;
       return numero;
     }
 }
