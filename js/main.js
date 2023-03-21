@@ -9,7 +9,6 @@ createApp({
       dropContent: document.getElementById('dropdown-content'),
       elementoSelezionato : 0,
       rispostePc : ['ok!', 'ben fatto!', 'ottimo lavoro!', 'come stai?', 'vado via, ciaooo!'],
-      nRispostaPc: "",
       isActive: false,
       indexMsg: "",
       newMessage: "",
@@ -180,25 +179,30 @@ createApp({
     }
   },
   methods : {
+
     chat(index) {
       this.elementoSelezionato = index;
       console.log (this.elementoSelezionato)
     },
+
     addMessage() {
-      if (this.message.length > 0){
+      if (this.newMessage.length > 0){
         if (this.elementoSelezionato >= 0) {
           this.contacts[this.elementoSelezionato].messages.push({message:this.newMessage, status:'sent', date:DateTime.now().setLocale('it').toLocaleString(DateTime.TIME_24_WITH_SECONDS),});
-          this.receivedMessage()
+          this.newMessage = "";
+          this.receivedMessage();
         }
       }
 
     },
+
     receivedMessage() {
       setTimeout(()=>{
-        this.contacts[this.elementoSelezionato].messages.push({message:rispostePc[nRispostaPc], status:'received', date:DateTime.now().setLocale('it').toLocaleString(DateTime.TIME_24_WITH_SECONDS),});
+        this.contacts[this.elementoSelezionato].messages.push({message:this.rispostePc[this.randomNumber()], status:'received', date:DateTime.now().setLocale('it').toLocaleString(DateTime.TIME_24_WITH_SECONDS),});
       }, 1000);
 
     },
+
     filter() {
       this.contacts.forEach(element =>{
        if (element.name.toLowerCase().includes(this.filtro.toLowerCase())) {
@@ -208,19 +212,22 @@ createApp({
        }
       } )
     },
+
     removeMessage(indexMsg) {
         if (this.elementoSelezionato >= 0) {
           this.contacts[this.elementoSelezionato].messages.splice(this.indexMsg, 1);
         }
         this.indexMsg = null;
     },
+
     active(index) {
       this.indexMsg = index;
       this.isActive = !this.isActive;
     },
+
     randomNumber() {
-      nRispostaPc = Math.floor( Math.random()* 5);
-      
+      let numero = Math.floor( Math.random()* 5) + 0;
+      return numero;
     }
 }
 }).mount('#app')
