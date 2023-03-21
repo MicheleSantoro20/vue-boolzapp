@@ -75,7 +75,10 @@
                             <li v-for="(element, index) in contacts" class="container-contact d-flex" @click="chat(index)" v-show="element.visible == true" >
                                 <img :src="element.avatar"  class="img-avatars avatar-rubrica" alt="">
                                 <div class="nomi-rubrica">
-                                    <div >{{element.name}}</div>
+                                    <div class="d-flex space-between">
+                                        <div>{{element.name}}</div>
+                                        <div class="ora-rubrica">12:00</div>
+                                    </div>
                                     <div class="gray">Ultimo Messaggio Inviato</div>
                                 </div>
 
@@ -103,25 +106,29 @@
                         </div>
                     </div>
                     <div class="msg-body">
-                        <div :class="(element.status == 'sent'?'msg-user-wrapper':'msg-wrapper')"  v-for="(element) in contacts[elementoSelezionato].messages">
-                            <div :class="(element.status == 'sent'?'user-msg':'bot-msg')">{{element.message}}</div>
+                        <div :class="(element.status == 'sent'?'msg-user-wrapper':'msg-wrapper')"  v-for="(element, index) in contacts[elementoSelezionato].messages" >
+                            <div :class="(element.status == 'sent'?'user-msg':'bot-msg')" >
+                                <div class="d-flex space-between">
+                                    <span>{{element.message}}</span>
+                                    <div  class="dropdown">
+                                        <button class="dropbtn" @click="active(index)"><i class="fa-solid fa-chevron-down"></i></button>
+                                            <div class="dropdown-content" :class="(isActive == true && index == indexMsg ?'display-block':'')">
+                                                <button class="dropdown-buttons">Info Messaggio</button>
+                                                <button  class="dropdown-buttons" @click="removeMessage(indexMsg)">Elimina Messaggio</button>
+                                            </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="date">{{element.date}}</div>
+                            </div>
+                            
                         </div>
-
-
-<!--                         <div class="msg-user-wrapper">
-                            <div class="user-msg">Io me stooo divertendo a meeelano, con i  fratm </div>
-                        </div>
-                        <div class="msg-wrapper">
-                            <div class="bot-msg">Uaa che bellezza, vorrei esserci anche io</div>
-                        </div> -->
-
-
 
                     </div>
                     <div class="msg-input d-flex">
-                        <i class="fa-regular fa-face-smile"></i>
-                        <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage">
-                        <i class="fa-solid fa-microphone"></i>
+                        <i class="fa-regular fa-face-smile buttons m-2"></i>
+                        <input class="send-msg" type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage">
+                        <i class="fa-solid fa-microphone buttons m-2"></i>
                     </div>
                 </div>
             </div>
@@ -130,7 +137,7 @@
     </div>
     
 
-
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="js/main.js"></script>
 </body>

@@ -4,6 +4,19 @@
     box-sizing: border-box;
 }
 
+/* ===== Scrollbar CSS ===== */
+  *::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #4f4f4f;
+    border-radius: 10px;
+    border: 3px solid transparent;
+  }
+
+/* =====  Fine Scrollbar  ===== */ 
+
 header  {
     height: 200px;
     width: 100vw;
@@ -16,6 +29,16 @@ body {
     position: relative;
 }
 
+
+
+main {
+    width: 100vw;
+}
+
+
+
+
+
 .container {
     width: 1400px;
     height: 800px;
@@ -26,16 +49,8 @@ body {
     transform: translate(-50%);
 }
 
-main {
-    width: 100vw;
-}
-
-.d-flex {
-    display: flex;
-}
-
 .aside {
-    background-color: rgb(200, 200, 200);
+
     width: 35%;
 }
 
@@ -49,7 +64,6 @@ main {
 
 .head {
     height: 80px;
-    background-color: lightgray;
     justify-content: space-between;
     padding: 15px 10px;
 }
@@ -142,6 +156,12 @@ main {
 .nomi-rubrica  {
     margin-top: 15px;
     margin-left: 10px;
+    flex-grow: 1;
+}
+
+.ora-rubrica {
+    color: lightgray;
+    padding-right: 5px;
 }
 
 .container-contact:hover {
@@ -149,14 +169,20 @@ main {
 }
 
 .buttons:hover {
-    color: white;
+    color: rgb(40, 40, 236);
 }
+
+
+/* =====  Message Body  =====*/
 
 .msg-body {
     height: 650px;
     width: 100%;
     background-image: url("../img/mine.jpg");
     padding-top: 20px;
+    overflow-y: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .msg-user-wrapper  {
@@ -167,19 +193,21 @@ main {
 
 .user-msg {
     background-color: rgb(213, 249, 186);
-    padding: 15px;
+    padding: 10px 15px;
     border-radius: 10px;
     max-width: 600px;
     word-wrap: break-word;
+    min-width: 300px;
 
 }
 
 .bot-msg {
     background-color: white;
-    padding: 15px;
+    padding: 10px 15px;
     border-radius: 10px;
     word-wrap: break-word;
     max-width: 600px;
+    min-width: 400px;
 
 }
 
@@ -187,12 +215,112 @@ main {
     padding: 5px;
     display: flex;
     justify-content: flex-start;
+    
 }
+
+
+/*Sezione di input*/
 
 .msg-input {
     height: 70px;
     background-color: beige;
-    padding: 10px 20px;
+    padding:  15px 20px;
+}
+
+.m-2 {
+    margin: 0px 20px;
+    font-size: 30px;
+    align-self: center;
+}
+
+.send-msg {
+    border: none;
+    width: 80%;
+    padding: 0px 20px;
+    border-radius: 20px;
+}
+
+.date  {
+    color: gray;
+    font-size: 12px;
+    text-align: right;
+    padding-top: 5px;
 }
 
 
+
+
+/*Dropdown*/
+
+
+.dropbtn {
+    color: gray;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+  }
+  
+.dropdown {
+    position: relative;
+    display: none;
+    
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #cac9c9;
+    min-width: 160px;
+    z-index: 1;
+    border: 1px solid #cac9c9;
+}
+
+.dropdown-buttons {
+    background-color: #cac9c9;
+    border: none;
+    width: 160px;
+    height: 20px;
+}
+
+.dropdown-buttons:hover {
+    background-color: white;
+}
+  
+.dropdown-add {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    background-color: transparent;
+    display: block;
+    border: none;
+    width: 100%;
+}
+  
+
+.msg-user-wrapper:hover .dropdown, .msg-wrapper:hover .dropdown {
+    display: inline-block;
+}
+
+
+
+/* ====    Codice riutilizzabile   ====*/
+
+.d-flex {
+    display: flex;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+
+.d-none {
+    display: none;
+}
+
+.display-block {
+    display: block;
+}
+
+/*  =============================   */

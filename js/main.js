@@ -1,13 +1,19 @@
+const DateTime = luxon.DateTime;
+
 const { createApp } = Vue
 
 createApp({
   data() {
     return {
-        elementoSelezionato : 0,
-        newMessage: "",
-        filtro: "",
-        arrayFilter: [],
-        contacts: [
+
+      dropContent: document.getElementById('dropdown-content'),
+      elementoSelezionato : 0,
+
+      isActive: false,
+      indexMsg: "",
+      newMessage: "",
+      filtro: "",
+      contacts: [
             {
             name: 'Michele',
             avatar: './img/avatar_1.jpg',
@@ -179,13 +185,13 @@ createApp({
     },
     addMessage() {
       if (this.elementoSelezionato >= 0) {
-        this.contacts[this.elementoSelezionato].messages.push({message:this.newMessage, status:'sent'});
+        this.contacts[this.elementoSelezionato].messages.push({message:this.newMessage, status:'sent', date:DateTime.now().setLocale('it').toLocaleString(DateTime.TIME_24_WITH_SECONDS),});
         this.receivedMessage()
       }
     },
     receivedMessage() {
       setTimeout(()=>{
-        this.contacts[this.elementoSelezionato].messages.push({message:'ok!', status:'received'});
+        this.contacts[this.elementoSelezionato].messages.push({message:'ok!', status:'received', date:DateTime.now().setLocale('it').toLocaleString(DateTime.TIME_24_WITH_SECONDS),});
       }, 1000);
 
     },
@@ -197,6 +203,16 @@ createApp({
         element.visible = false;
        }
       } )
-  },
+    },
+    removeMessage(indexMsg) {
+        if (this.elementoSelezionato >= 0) {
+          this.contacts[this.elementoSelezionato].messages.splice(this.indexMsg, 1);
+        }
+        this.indexMsg = null;
+    },
+    active(index) {
+      this.indexMsg = index;
+      this.isActive = !this.isActive;
+    }
 }
 }).mount('#app')
