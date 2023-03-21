@@ -8,7 +8,8 @@ createApp({
 
       dropContent: document.getElementById('dropdown-content'),
       elementoSelezionato : 0,
-
+      rispostePc : ['ok!', 'ben fatto!', 'ottimo lavoro!', 'come stai?', 'vado via, ciaooo!'],
+      nRispostaPc: "",
       isActive: false,
       indexMsg: "",
       newMessage: "",
@@ -194,7 +195,7 @@ createApp({
     },
     receivedMessage() {
       setTimeout(()=>{
-        this.contacts[this.elementoSelezionato].messages.push({message:'ok!', status:'received', date:DateTime.now().setLocale('it').toLocaleString(DateTime.TIME_24_WITH_SECONDS),});
+        this.contacts[this.elementoSelezionato].messages.push({message:rispostePc[nRispostaPc], status:'received', date:DateTime.now().setLocale('it').toLocaleString(DateTime.TIME_24_WITH_SECONDS),});
       }, 1000);
 
     },
@@ -216,6 +217,10 @@ createApp({
     active(index) {
       this.indexMsg = index;
       this.isActive = !this.isActive;
+    },
+    randomNumber() {
+      nRispostaPc = Math.floor( Math.random()* 5);
+      
     }
 }
 }).mount('#app')
