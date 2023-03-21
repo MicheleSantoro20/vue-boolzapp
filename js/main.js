@@ -184,10 +184,13 @@ createApp({
       console.log (this.elementoSelezionato)
     },
     addMessage() {
-      if (this.elementoSelezionato >= 0) {
-        this.contacts[this.elementoSelezionato].messages.push({message:this.newMessage, status:'sent', date:DateTime.now().setLocale('it').toLocaleString(DateTime.TIME_24_WITH_SECONDS),});
-        this.receivedMessage()
+      if (this.message.length > 0){
+        if (this.elementoSelezionato >= 0) {
+          this.contacts[this.elementoSelezionato].messages.push({message:this.newMessage, status:'sent', date:DateTime.now().setLocale('it').toLocaleString(DateTime.TIME_24_WITH_SECONDS),});
+          this.receivedMessage()
+        }
       }
+
     },
     receivedMessage() {
       setTimeout(()=>{
