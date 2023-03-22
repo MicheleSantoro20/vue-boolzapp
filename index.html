@@ -77,9 +77,9 @@
                                 <div class="nomi-rubrica">
                                     <div class="d-flex space-between">
                                         <div>{{element.name}}</div>
-                                        <div class="ora-rubrica">12:00</div>
+                                        <div class="ora-rubrica">{{element.messages[element.messages.length- 1].date}}</div>
                                     </div>
-                                    <div class="gray">{{element.messages[element.messages.length- 1].message}}</div>
+                                    <div class="gray" v-if="element.messages.length > 0">{{element.messages[element.messages.length- 1].message}}</div>
                                 </div>
 
                             </li>
@@ -96,7 +96,7 @@
                             <img class="img-avatars" src="img/avatar_io.jpg" alt="">
                             <div class="headTXT">
                                 <div>{{contacts[elementoSelezionato].name}}</div>
-                                <div>Ultimo accesso alle ore 12:00</div>
+                                <div>Ultimo accesso alle ore {{contacts[elementoSelezionato].messages[contacts[elementoSelezionato].messages.length - 1].date}}</div>
                             </div>
                         </div>
                         <div class="d-flex icons">

@@ -188,7 +188,7 @@ createApp({
     addMessage() {
       if (this.newMessage.length > 0){
         if (this.elementoSelezionato >= 0) {
-          this.contacts[this.elementoSelezionato].messages.push({message:this.newMessage, status:'sent', date:DateTime.now().setLocale('it').toLocaleString(DateTime.TIME_24_WITH_SECONDS),});
+          this.contacts[this.elementoSelezionato].messages.push({message:this.newMessage, status:'sent', date:DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS),});
           this.newMessage = "";
           this.receivedMessage();
         }
@@ -198,7 +198,7 @@ createApp({
 // Funzione relativa alla ricezione di una risposta a seguito di un input
     receivedMessage() {
       setTimeout(()=>{
-        this.contacts[this.elementoSelezionato].messages.push({message:this.rispostePc[this.randomNumber()], status:'received', date:DateTime.now().setLocale('it').toLocaleString(DateTime.TIME_24_WITH_SECONDS),});
+        this.contacts[this.elementoSelezionato].messages.push({message:this.rispostePc[this.randomNumber()], status:'received', date:DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS),});
       }, 1000);
 
     },
