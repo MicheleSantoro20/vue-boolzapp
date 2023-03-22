@@ -8,7 +8,7 @@ createApp({
 
       dropContent: document.getElementById('dropdown-content'),
       elementoSelezionato : 0,
-      rispostePc : ['ok!', 'ben fatto!', 'ottimo lavoro!', 'come stai?', 'vado via, ciaooo!', 'Gravi tumulti hanno travolto la galassia a causa della tassazione sulle rotte mercantili verso i sistemi stellari periferici. Lingorda federazione dei mercanti, sperando di risolvere la questione, ha schierato micidiali astronavi da guerra per impedire tutte le spedizioni nel piccolo pianeta di Naboo. Mentre il congresso della Repubblica discute senza sosta l allarmante succedersi degli eventi, il cancelliere supremo ha inviato segretamente nella Galassia due Cavalieri Jedi, i guardiani della pace e della giustizia, per risolvere il conflitto.' ],
+      rispostePc : ['ok!', 'ben fatto!', 'ottimo lavoro!', 'come stai?', 'vado via, ciaooo!', 'Buonanotte' ],
       isActive: false,
       indexMsg: "",
       newMessage: "",
@@ -184,7 +184,7 @@ createApp({
       this.elementoSelezionato = index;
       console.log (this.elementoSelezionato)
     },
-
+//Funzione relativa all'aggiunta di un messaggio in un Array dato un input
     addMessage() {
       if (this.newMessage.length > 0){
         if (this.elementoSelezionato >= 0) {
@@ -195,14 +195,14 @@ createApp({
       }
 
     },
-
+// Funzione relativa alla ricezione di una risposta a seguito di un input
     receivedMessage() {
       setTimeout(()=>{
         this.contacts[this.elementoSelezionato].messages.push({message:this.rispostePc[this.randomNumber()], status:'received', date:DateTime.now().setLocale('it').toLocaleString(DateTime.TIME_24_WITH_SECONDS),});
       }, 1000);
 
     },
-
+// Filtro relativo alla ricerca dei contatti
     filter() {
       this.contacts.forEach(element =>{
        if (element.name.toLowerCase().includes(this.filtro.toLowerCase())) {
@@ -212,19 +212,19 @@ createApp({
        }
       } )
     },
-
+// Funzione relativa all'eliminazione del messaggio selezionato
     removeMessage(indexMsg) {
         if (this.elementoSelezionato >= 0) {
           this.contacts[this.elementoSelezionato].messages.splice(this.indexMsg, 1);
         }
         this.indexMsg = null;
     },
-
+//Funzione relativa all'apertura/chiusura del dropdown
     active(index) {
       this.indexMsg = index;
       this.isActive = !this.isActive;
     },
-
+//Funzione relativa alla generazione di un numero casuale, dato l'array di risposte del pc
     randomNumber() {
       let numero = Math.floor( Math.random()* 6) + 0;
       return numero;
